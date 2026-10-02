@@ -1,0 +1,39 @@
+project:
+  name: harness-lab
+  purpose: >
+    Discover, model, and eventually implement a software-development harness.
+
+harness_project:
+  lifecycle_stage: domain_discovery
+
+current_focus:
+  type: domain_modeling
+  objective: >
+    Establish a coherent first model of Idea, Requirement,
+    Decision, and ArchitectureBaseline.
+
+implementation:
+  allowed: false
+
+domain_model:
+  maturity: exploratory
+
+  core_candidates:
+    - Idea
+    - Requirement
+    - Decision
+    - ArchitectureBaseline
+
+  supporting_candidates:
+    - Question
+    - Evidence
+    - Revision
+    - TraceLink
+    - Authority
+
+current_questions:
+  - What concepts are truly first-class domain entities?
+  - What are their lifecycles?
+  - What transitions require evidence?
+  - What relationships exist between them?
+  - How does change propagate through those relationships?
