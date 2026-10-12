@@ -64,6 +64,13 @@ that B cannot support R2 makes it `inconsistent` for that context, not silently
 retired. Its successor needs architecture approval. Test Evidence for a build
 against R1 cannot establish satisfaction of R2 without reassessment.
 
+The [CR1 walkthrough](scenarios/changed-requirement-after-implementation.md)
+expands this example. A failing system measurement establishes a satisfaction
+shortfall in its evaluated context, not by itself a contradiction in the baseline
+or proof that an adopted structural choice cannot meet the changed Requirement.
+Reviewers must distinguish an unsupported coverage/premise claim from a demonstrated
+conflict. Draft-change impacts are prospective; they do not make the draft govern.
+
 ## Authority boundaries
 
 Product/scope authority accepts obligations; decision authority depends on kind

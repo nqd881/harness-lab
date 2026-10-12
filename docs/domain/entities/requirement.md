@@ -78,6 +78,9 @@ one status. Draft abandonment and partial scope replacement need further study.
 - Satisfaction claims identify exact Requirement and evaluated system revisions,
   criteria coverage, conditions, and Evidence. No claim transfers automatically
   to a changed Requirement or a different release.
+- Existing observations may support a new assessment after explicit applicability
+  and coverage review. Reusing Evidence does not reuse an old verdict or rewrite
+  the original assessment; a stricter criterion can yield a different finding.
 
 ## Commands
 
@@ -126,6 +129,11 @@ High-risk compliance or release acceptance may additionally require a human to
 endorse the satisfaction judgment; that is not the same authority as scope approval.
 
 ## Open questions
+
+The [CR1 walkthrough](../scenarios/changed-requirement-after-implementation.md)
+supports separate satisfaction records for changed criteria and system revisions,
+without establishing independent assessment entity identity. It also exposes the
+unsettled distinction between successor acceptance and completed scope transfer.
 
 See [R1-R4](../open-questions.md#requirement): assessment identity, contextual
 applicability, obligation sources and waivers, and refinement/partial supersession.

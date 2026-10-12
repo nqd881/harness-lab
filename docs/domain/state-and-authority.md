@@ -55,6 +55,13 @@ These rules do not require synchronous acceptance of all related concepts or a
 global project phase. Review is an activity; `in_review` is a state; the resulting
 review report is an artifact and may supply Evidence.
 
+The [CR1 walkthrough](scenarios/changed-requirement-after-implementation.md)
+distinguishes acceptance of a successor obligation from completed replacement of
+its predecessor. Do not infer scope transfer from acceptance alone. Their activation
+and any intermediate overlap remain S3/W1 questions, not an atomicity specification.
+Likewise preservation of an accepted baseline pending review is not authorization
+for continued use or release; those permissions remain S2/W1 questions.
+
 ## Human authority
 
 The initial safety hypothesis reserves binding commitments and reversals for an

@@ -1,9 +1,9 @@
 # Open Questions
 
-All questions below remain unresolved. Working positions are hypotheses from the
-first concept investigation, not stakeholder-approved Decisions. IDs support
-cross-references; a question is not resolved merely because a preferred answer
-is documented.
+All questions below remain unresolved. Working positions are hypotheses from
+concept investigation and scenario walkthroughs, not stakeholder-approved Decisions.
+IDs support cross-references; a question is not resolved merely because a preferred
+answer is documented.
 
 ## Domain boundary
 
@@ -133,7 +133,35 @@ is documented.
 
 ## Next discovery scenarios
 
-Walk through a changed Requirement after implementation, a failed architecture
-assumption, retracted Evidence used by multiple Decisions, and a partial baseline
-replacement. Record concrete actors, commands, refusal conditions, events, and
-impact findings; then revise hypotheses that do not survive these cases.
+The changed-Requirement scenario now has an initial walkthrough in
+[CR1](scenarios/changed-requirement-after-implementation.md). Resolve its activation
+and continued-use questions with stakeholders before treating its replacement
+workflow as settled. Failed architecture assumptions, retracted Evidence used by
+multiple Decisions, and partial baseline replacement remain uninvestigated here.
+
+## CR1 findings: changed Requirement
+
+CR1 is a hypothetical model test, not stakeholder approval. It supports existing
+recommendations but resolves none of the question IDs above.
+
+- **R1/B2:** Different Requirement/system revisions need distinguishable assessment
+  records. This does not yet establish an independently managed assessment entity
+  or ownership of delivery work.
+- **R2/S1:** Opposite findings in different releases cannot be reduced to one
+  Requirement status. Aggregation across contexts and conflicting reviewers remains
+  open. A failing build alone does not establish baseline inconsistency.
+- **S2/W1:** Draft impacts are prospective, not activation of a new obligation.
+  Which approvals or uses of the old baseline must pause pending review, and who
+  can authorize continued use without waiving R2?
+- **S3/W1:** The walkthrough identifies successor acceptance and predecessor scope
+  transfer separately. Must they take effect together? If the successor is accepted
+  but supersession is refused, which obligation governs and how is overlap exposed?
+  The example's assumed revision continuity does not settle identity boundaries.
+- **E2/W2:** Existing measurements can be reinterpreted after applicability review,
+  without transferring old verdicts. What makes a feasibility account sufficient
+  for accepting R2 while the current build fails, and when must an accountable
+  human endorse the new satisfaction finding?
+
+Next focused check: walk through refused supersession and obtain explicit answers
+on governing applicability and continued-use authority while the baseline successor
+is draft. Do not create a release process or policy by inference.

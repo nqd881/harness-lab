@@ -81,13 +81,45 @@ remains unchanged in `domain_discovery`, with implementation prohibited.
 
 ## Next
 
-Validate the first model through concrete workflows rather than adding more
-entities by default. Prioritize changed Requirements after implementation, failed
-architecture assumptions, shared/retracted Evidence, and partial replacement.
+Complete the changed-Requirement investigation by testing refused supersession and
+seeking stakeholder answers on successor activation, intermediate scope overlap,
+and permitted use of the old baseline while its successor is draft. Assessment
+entity identity and evidence/endorsement thresholds remain open; do not infer a
+release process or add entities to answer them by default.
 
-Use those scenarios to settle assessment identity, baseline/candidate identity,
-scope transfer, decision-kind differences, and authority/evidence thresholds.
+Then continue the already planned failed architecture assumption, shared/retracted
+Evidence, and partial replacement scenarios. Those were not investigated in CR1.
 Record stakeholder resolutions separately from working hypotheses.
+
+## Session record: 2026-10-08
+
+Documented CR1, a hypothetical changed Requirement after implementation, in
+`docs/domain/scenarios/changed-requirement-after-implementation.md`. The walkthrough
+specifies example scope, actors and mandates, commands, refusal conditions, events,
+and impact findings. Its counter-cases cover implemented-but-failing behavior,
+different releases and regression, non-comparable Evidence, wrong authority, and
+rejection of the proposed change. No stakeholder Decisions were made.
+
+The scenario supports separate lifecycle, consistency, satisfaction, and conformance
+dimensions, revision-specific history, scoped review, and scoped authority. It
+contradicts shortcuts rather than existing working recommendations: completion is
+not satisfaction, old verdicts do not transfer, and build failure alone does not
+prove architectural inconsistency. Existing observations can support a new finding
+after applicability review without rewriting earlier Evidence or assessments.
+
+Clarified these findings in Requirement invariants and relationships. Updated
+state/authority guidance to distinguish accepted successor content from completed
+scope transfer, and retained acceptance from continued-use permission. Recorded
+focused follow-ups under existing question IDs in `open-questions.md`; all remain
+unresolved. The scenario does not settle assessment or candidate entity identity,
+atomic replacement semantics, general Decision kinds, or approval thresholds.
+
+Changes are domain documentation only. `PROJECT_STATE.yaml` is unchanged in
+`domain_discovery`, with implementation prohibited.
+
+Verification: a separate read-only review found no actionable contradictions,
+scope expansion, or accidental policy resolutions. `git diff --check` passed.
+No application build or tests apply to this documentation-only investigation.
 
 ## Implementation
 
