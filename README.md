@@ -25,3 +25,12 @@ We are currently studying concepts such as:
 - authority
 
 Application implementation is intentionally out of scope for now.
+
+## Product Vision
+
+See [Product Shape](docs/visions/product-shape.md)
+for the intended Harness product, its candidate
+architecture, capabilities, and success criteria.
+
+This is a vision document, not an approved
+implementation specification.
