@@ -186,6 +186,39 @@ The setup task itself exercises the automatic completion workflow.
 No domain policies or application source changed. `PROJECT_STATE.yaml` remains
 unchanged in `domain_discovery`, with `implementation.allowed: false`.
 
+## Workflow update: 2026-11-03
+
+Scope: extend the Git instructions in `AGENTS.md` and the existing
+`.opencode/commands/finish-task.md` entry point with automatic draft PR creation
+and safe local `main` synchronization. Start branch:
+`task/automate-pr-and-main-sync`, based on synchronized `main` at
+`86d3a4850382b60556c6d35b3e5621c25c5cd885`. Before branching, confirmed a clean
+worktree, the expected origin, authenticated GitHub access, and previous task
+PR #1 merged into `main`; fetch and `--ff-only` synchronization succeeded.
+
+New work requires a clean tree and a confirmed merged previous-task PR. Open,
+closed-unmerged, missing/ambiguous PRs and failed lookups stop it. Local `main`
+must fast-forward to and equal `origin/main` before a fresh task branch is made.
+Completion checks for an existing PR, reuses an open PR targeting `main`, or
+creates a draft with summary, changed paths, checks, and unresolved questions.
+Failures preserve local commits/pushed branches; no automatic readiness, approval,
+merge, permission bypass, or duplicate PR creation is authorized.
+
+Validation: OpenCode 1.19.4 loaded the revised command through
+`opencode debug config`; checked the `build` agent, argument placeholder, workflow
+reference, draft-PR instructions, and PR-URL reporting. Reviewed dirty/unmerged/
+ambiguous/failing-lookup stop paths, ahead/diverged `main`, existing-PR reuse, and
+creation-timeout re-query handling. Confirmed `main` equals `origin/main`, checked
+`gh pr create --help` flags, and passed `git diff --check`. These failure paths
+were reviewed without injecting failures into the real repository. The actual
+task exercises commit, push/hash confirmation, and PR creation; final results
+belong in its PR and completion report, with no separate test PRs.
+
+Restart OpenCode to load the revised command. Execution remains agent-directed
+and subject to agent adherence, GitHub availability, and required permissions.
+No domain policy or application source changes are in scope; `PROJECT_STATE.yaml`
+is unchanged, retaining `domain_discovery` and `implementation.allowed: false`.
+
 ## Implementation
 
 Not started and intentionally prohibited.

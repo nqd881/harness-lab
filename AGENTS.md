@@ -103,25 +103,40 @@ For now, work only on domain discovery and modeling.
 
 ## Git task-completion workflow
 
-This is standing authorization to commit and push successfully completed work
-units to dedicated task branches on `origin`. Apply it automatically before the
-final task report; the user should not need to run Git commands or invoke
-`/finish-task`. That command is an explicit way to request the same workflow.
+This is standing authorization to synchronize local `main` before new work and
+to commit, push, and open draft PRs for successfully completed work units on
+dedicated task branches. Apply it automatically; the user should not need to run
+Git commands or invoke `/finish-task`, the explicit entry point to the same workflow.
 Honor any newer user instruction and all required tool permissions/approvals.
 This workflow does not authorize domain-policy decisions or application code.
 
-### Before changing files
+### Before starting a new work unit
 
 1. Inspect `git status --short --branch`, `git diff`, `git diff --cached`,
    `git remote -v`, and `git branch --show-current`.
-2. Stop if there are unrelated uncommitted changes, conflicts, a detached HEAD,
-   or an unexpected/missing `origin`. Report the exact blocker without altering
-   existing work. Do not absorb pre-existing changes into the task.
-3. Start each new work unit from a clean, agreed base on a new, uniquely named
-   `task/<short-description>` branch using `git switch -c`. Record its starting
-   commit and the intended scope. Resume an existing task branch only when its
-   ownership and scope are established. Do not silently carry a previous task's
-   commits into a new work unit; if the appropriate base is unclear, ask.
+2. Stop on any dirty working tree (including staged/untracked files), conflicts,
+   detached HEAD, or unexpected/missing `origin`. Expected origin is
+   `https://github.com/nqd881/harness-lab.git`. Report the exact blocker without
+   altering or absorbing existing work.
+3. Check `gh` availability/authentication. Identify the previous task from the
+   current branch, or task/progress history if already on `main`. If one exists,
+   query its PR with `gh pr list --repo nqd881/harness-lab --head <previous-task>
+   --state all --json number,state,mergedAt,baseRefName,url`. Require a confirmed
+   merge into `main`; stop for an open/draft, closed-unmerged, missing, or ambiguous
+   PR, failed lookup, or unclear task ownership. Never interpret a lookup error
+   as no PR, or infer a merge from local history alone.
+4. Run `git fetch origin`, `git switch main`, then
+   `git merge --ff-only origin/main`, stopping on failure. Require local `main`
+   to equal `origin/main` afterward; stop if ahead/diverged. Never reset, rebase,
+   force-update, discard work, or push directly to `main` to make synchronization
+   succeed.
+5. Create a fresh, uniquely named `task/<short-description>` branch from that
+   synchronized `main` using `git switch -c`. Record its starting commit and scope.
+   Never carry a previous task's unmerged commits into the new unit.
+
+Resuming the same task is distinct from starting a new one: establish its branch,
+starting commit, and owned paths before editing or finishing; stop on unrelated
+changes or unclear ownership. Do not synchronize `main` mid-task.
 
 ### After successful work, before reporting completion
 
@@ -151,13 +166,30 @@ This workflow does not authorize domain-policy decisions or application code.
 7. Inspect the resulting commit and worktree. Push only the verified task branch
    using `git push --set-upstream origin HEAD:refs/heads/task/<actual-name>`
    (substitute the exact current branch). Never force-push, reset, discard work,
-   bypass approvals, or automatically merge a pull request. Stop on conflicts,
-   non-fast-forward rejection, authentication failure, or permission denial;
-   preserve any local commit and report the exact blocker.
+   bypass permissions/approvals, or automatically approve or merge a PR. Stop on
+   conflicts, non-fast-forward rejection, authentication failure, or permission
+   denial; preserve any local commit and report the exact blocker.
 8. After a successful push, verify that `git ls-remote --heads origin
    refs/heads/task/<actual-name>` reports the same hash as `git rev-parse HEAD`.
-   Report the branch, commit, checks performed, and push result. Do not claim
-   remote success without confirmation. Leave the task branch checked out.
+   Do not claim remote success without confirmation.
+9. Before PR creation, inspect status, branch tracking, recent history, every
+   task commit, and the full diff against fetched `origin/main`. Use
+   `gh pr list --repo nqd881/harness-lab --head <actual-task-branch> --state all
+   --json number,state,baseRefName,url,isDraft` to check for an existing PR.
+   Reuse its URL if it is open and targets `main`; stop on a closed/merged PR,
+   mismatched base, or ambiguous results. Create only after a successful empty
+   lookup; never create duplicates.
+10. If none exists, run `gh pr create --repo nqd881/harness-lab --draft --base main
+    --head <actual-task-branch> --title <task-summary> --body <task-report>`.
+    Include the summary, changed files, verification commands/results, and unresolved
+    questions (explicitly none if appropriate). Verify the PR's head, base, draft
+    status, and URL with `gh pr view`. If reusing a PR, preserve user-authored details
+    when updating task evidence. Never automatically mark ready, approve, or merge.
+11. If `gh` is unavailable or authentication, permission, or API access fails,
+    preserve the pushed branch and report the blocker without bypassing controls.
+    If creation fails/times out, re-query before any retry to avoid duplicates.
+    Report the branch, commit, checks, confirmed push status, and PR URL or exact
+    blocker. Leave the task branch checked out.
 
 Run this workflow once at successful task completion, not on each file edit,
 assistant turn, or `session.idle` event. Read-only tasks with no changes need no
