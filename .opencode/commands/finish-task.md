@@ -1,5 +1,5 @@
 ---
-description: Verify completed work, commit task-owned changes, and push the task branch
+description: Verify completed work, commit and push the task branch, and open or reuse its draft PR
 agent: build
 ---
 
@@ -15,7 +15,11 @@ stop and explain the blocker. Do not treat every dirty file as task-owned.
 Verify the work, inspect all changes for scope and secrets, update `PROGRESS.md`
 for substantive domain work, stage explicit paths, review the staged diff,
 commit, push the task branch to `origin`, and confirm the remote commit hash.
+Then check for an existing PR and reuse it, or create a draft PR targeting `main`
+using `gh`, following the PR reporting and failure rules in `AGENTS.md`.
 Honor required permissions and all stop conditions in `AGENTS.md`.
 
-Report the branch, commit, verification results, and confirmed push status or
-exact blocker. Preserve the project's domain-discovery restrictions.
+Report the branch, commit, verification results, confirmed push status, and PR URL
+or exact blocker. This command finishes the current task; the new-work preflight
+in `AGENTS.md` checks its merge and fast-forwards local `main` before creating the
+next task branch. Preserve the project's domain-discovery restrictions.
