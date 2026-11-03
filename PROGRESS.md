@@ -157,6 +157,35 @@ baseline, relationship, and authority guidance, plus cross-references and change
 scope. `git diff --check` and a separate whitespace check of the new scenario
 passed. No application build or tests apply to this documentation-only work.
 
+## Workflow setup: 2026-11-03
+
+Configured agent-directed automatic Git task completion in `AGENTS.md`, with
+`.opencode/commands/finish-task.md` as an explicit entry point to the same
+workflow. Successful work units are verified, reviewed for scope and secrets,
+committed with explicit path staging, and pushed only to dedicated `task/*`
+branches. Conflicts, unrelated changes, authentication/permission failures, and
+unclear task ownership stop the workflow. Required approvals remain in force.
+
+Setup branch: `task/configure-git-completion`, starting at
+`b728d5fe0c67c3629283bed5c770e7a5f99e12f5` on clean `main`, matching remote
+`main`. Scope: agent instructions, the completion command, and this workflow
+record. Expected origin: `https://github.com/nqd881/harness-lab.git`.
+
+OpenCode 1.19.4 successfully loaded the command through `opencode debug config`;
+checked command discovery, the `build` agent, workflow reference, and argument
+placeholder. GitHub authentication and remote read access were verified before
+changes. Final diff/scope review and commit/push confirmation are reported in
+the setup task's completion report. No new permission overrides, plugins, or
+edit/idle hooks were added. Restart OpenCode to load the new command.
+
+This is a persistent agent instruction, not a guaranteed task-completion event
+hook. Future execution still depends on agent adherence and required permissions;
+loading the command does not establish reliability across future sessions.
+The setup task itself exercises the automatic completion workflow.
+
+No domain policies or application source changed. `PROJECT_STATE.yaml` remains
+unchanged in `domain_discovery`, with `implementation.allowed: false`.
+
 ## Implementation
 
 Not started and intentionally prohibited.
