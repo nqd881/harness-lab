@@ -13,6 +13,7 @@ meaning and applicability; arbitrary connectivity does not imply change impact.
 | Decision resolves Question in a scope | Selects an authorized outcome | All contexts of the Question are resolved |
 | Decision constrains Requirement | Establishes interpretation or scope rationale | Adoption automatically changes an accepted obligation |
 | Requirement constrains architecture | States what architecture must accommodate | A design or passing test fulfills all criteria |
+| Requirement supersedes Requirement | Records authorized predecessor scope transfer to an accepted successor | Successor acceptance alone completes that transfer |
 | Baseline addresses Requirement revision | Records architectural response and coverage | Coverage proves satisfaction |
 | Baseline incorporates Decision revision | Fixes applicable choices and consequences | All Decisions are owned by that baseline |
 | Baseline fixes description revisions | Provides an accepted architectural reference | Descriptions or deployed systems cannot evolve independently |
@@ -70,6 +71,16 @@ shortfall in its evaluated context, not by itself a contradiction in the baselin
 or proof that an adopted structural choice cannot meet the changed Requirement.
 Reviewers must distinguish an unsupported coverage/premise claim from a demonstrated
 conflict. Draft-change impacts are prospective; they do not make the draft govern.
+
+The [refused-supersession case](scenarios/refused-requirement-supersession.md)
+exposes a different stopping point: R1 and R2 are both accepted, but no authorized
+replacement occurred. R1 still governs; R2's current force depends on unresolved
+policy. Downstream review must observe exact acceptances, the refusal and its
+reason, and that uncertainty. It must not silently substitute R2 in D1/B1's fixed
+premises or treat R2 as merely prospective without a policy basis. Under deferred
+force, review addresses an accepted future obligation; under immediate concurrent
+force, it addresses an additional current obligation. Old coverage does not prove
+new coverage, and neither branch automatically retires B1 or activates draft BC2.
 
 ## Authority boundaries
 

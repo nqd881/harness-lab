@@ -14,7 +14,17 @@ commitment. Pursuit authorizes further development of commitments, not fulfillme
 A statement describing behavior, capability, quality, or constraint
 that a system is expected to satisfy in an explicit scope and context. Acceptance
 authorizes an obligation at a particular revision; implementation and satisfaction
-are separate concerns.
+are separate concerns. Whether successor acceptance begins its governing force
+immediately or approves a future obligation remains an unresolved policy question.
+
+## Requirement Applicability and Governing Force
+
+Scope/condition match asks whether a context is within a Requirement's designated
+reach. Governing force asks whether the exact obligation binds there now, and on
+what authority/policy basis. "Applicable" must state which meaning is intended.
+Activation denotes the beginning of governing force, not a new entity or proposed
+lifecycle state. CR1-RS tests separate acceptance and present-force questions;
+their coupling and permitted coexistence remain open.
 
 ## Decision
 

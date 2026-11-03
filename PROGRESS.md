@@ -81,11 +81,13 @@ remains unchanged in `domain_discovery`, with implementation prohibited.
 
 ## Next
 
-Complete the changed-Requirement investigation by testing refused supersession and
-seeking stakeholder answers on successor activation, intermediate scope overlap,
-and permitted use of the old baseline while its successor is draft. Assessment
-entity identity and evidence/endorsement thresholds remain open; do not infer a
-release process or add entities to answer them by default.
+The refused-supersession walkthrough is now documented in CR1-RS. Seek stakeholder
+answers on whether successor acceptance defers governing force or immediately adds
+an obligation, permitted coexistence and activation conditions, who may set that
+policy, and permitted use of the old baseline while its successor is draft.
+Examples have not resolved those choices. Assessment entity identity and
+evidence/endorsement thresholds remain open; do not infer a release process or
+add entities to answer them by default.
 
 Then continue the already planned failed architecture assumption, shared/retracted
 Evidence, and partial replacement scenarios. Those were not investigated in CR1.
@@ -120,6 +122,40 @@ Changes are domain documentation only. `PROJECT_STATE.yaml` is unchanged in
 Verification: a separate read-only review found no actionable contradictions,
 scope expansion, or accidental policy resolutions. `git diff --check` passed.
 No application build or tests apply to this documentation-only investigation.
+
+## Session record: 2026-10-23
+
+Investigated only CR1's accepted-successor/refused-supersession case in
+`docs/domain/scenarios/refused-requirement-supersession.md` (CR1-RS). Arun's request
+has an accepted successor and complete scope mapping, but lacks obligation-
+disposition authority. Refusal leaves R1 governing and both revisions accepted;
+it neither rejects R2 nor undoes its acceptance. A separate guard check distinguishes
+an invalid scope/revision account from this unauthorized request.
+
+Compared two unselected policy possibilities: R2 is an authorized future obligation
+that remains non-governing until authorized activation, or acceptance makes R2
+immediately govern alongside R1 until R1 is ended. The compatible 500/300 ms
+criteria do not establish universal precedence. Per-revision lifecycles can
+describe the two acceptances but cannot determine the governing set without the
+missing policy. Clarified authorization, scope/condition match, and present force
+as separate questions without deciding independent lifecycles or adding entities.
+Also exposed whether undefined governing effect should have blocked acceptance;
+missing policy information alone does not establish a defect in the earlier action.
+
+Documented downstream D1/B1 review, preserved Evidence/verdicts, an explicit agent
+briefing that exposes unresolved force, and the different mandates needed for
+policy, obligation disposition, and architecture actions. Updated the Requirement,
+glossary, relationships, state/authority guidance, CR1 cross-reference, and existing
+open-question IDs. No stakeholder Decisions were made; activation, coexistence,
+continued-use permissions, and policy-setting authority remain unresolved.
+
+Changes are domain/scenario/progress documentation only. `PROJECT_STATE.yaml`
+remains unchanged in `domain_discovery`, with implementation prohibited.
+
+Verification: reviewed consistency with the related Requirement, Decision,
+baseline, relationship, and authority guidance, plus cross-references and change
+scope. `git diff --check` and a separate whitespace check of the new scenario
+passed. No application build or tests apply to this documentation-only work.
 
 ## Implementation
 

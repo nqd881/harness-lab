@@ -134,7 +134,15 @@ Evidence or human endorsement (E2/W2), replacement activation and failed scope
 transfer (S3/W1), or continued use of a baseline pending review (S2/W1).
 Candidate identity (A2) and general Decision-kind differences (D1) are not tested.
 
-Next within this investigation: obtain stakeholder answers on when R2 becomes
-governing and what blocks use of B1 while BC2 is draft. Test a refused supersession
-before claiming the full replacement workflow is settled. See the CR1 findings in
-[open questions](../open-questions.md#cr1-findings-changed-requirement).
+## Follow-up: refused supersession
+
+[CR1-RS](refused-requirement-supersession.md), investigated on 2026-10-23, tests an
+accepted R2 followed by refusal of an unauthorized request to supersede R1. It
+preserves R1's governing force and both acceptances, then compares deferred R2
+activation with immediate concurrent obligation. The original successful path
+above remains a whole-scope replacement example, not a choice between those policies.
+
+Next within this investigation: obtain stakeholder answers on R2's governing
+effect, coexistence, and what permits use of B1 while BC2 is draft. The refusal
+walkthrough is complete, but the replacement workflow remains unsettled. See the
+[CR1-RS questions](../open-questions.md#cr1-rs-findings-refused-supersession).

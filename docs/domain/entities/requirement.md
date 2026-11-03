@@ -4,7 +4,9 @@
 
 A scoped statement of expected behavior, capability, quality, or constraint.
 An accepted Requirement is an authorized obligation for a particular revision
-and applicability context. A draft proposes such an obligation.
+and designated context. A draft proposes such an obligation. Whether acceptance
+of a successor makes it govern immediately or authorizes future governing force
+remains unresolved; acceptance does not by itself establish predecessor disposition.
 
 Working classification: an entity whose identity can persist across revisions.
 Acceptance criteria describe what would satisfy it; they are not implementation
@@ -22,6 +24,9 @@ completion from being mistaken for compliance with the agreed outcome.
 - Identity, revision, statement, rationale, and obligation source.
 - Scope and applicability: system boundary, stakeholders, conditions, and relevant
   release or operating context when known.
+- Basis for present governing force in that context, including any established
+  activation conditions or unresolved overlap with other accepted revisions.
+  Designated scope and current force must not be silently conflated.
 - Acceptance criteria or a justified evaluation method, including measurable
   thresholds for quality expectations where appropriate.
 - Assumptions, constraints, priority, and dependencies on other Requirements.
@@ -57,6 +62,13 @@ remain unimplemented, satisfied in one release, unsatisfied in another, and
 `needs_review` after a dependency change. These facts must not be collapsed into
 one status. Draft abandonment and partial scope replacement need further study.
 
+The [refused-supersession follow-up](../scenarios/refused-requirement-supersession.md)
+can describe two accepted revisions after a failed replacement request. The current
+per-revision lifecycle neither forbids that coexistence nor determines whether
+both govern. An accepted, non-governing successor is one policy possibility, not
+an established state or universal rule. The competing possibility makes acceptance
+immediately binding alongside the predecessor until an authorized ending.
+
 ## Invariants
 
 - Review submission identifies the expected outcome, scope, source, criteria or
@@ -73,6 +85,14 @@ one status. Draft abandonment and partial scope replacement need further study.
   reconciled without an authorized Decision or explicit unresolved conflict.
 - Supersession names an accepted successor revision and scope mapping. It must not
   silently drop part of an obligation; partial replacement remains unresolved.
+- Successor acceptance is not proof that predecessor scope transfer occurred. A
+  refused supersession changes neither revision's lifecycle by itself and does
+  not reject or undo an earlier valid acceptance.
+- Claims about which revisions govern identify their scope and authorization/policy
+  basis, or explicitly leave the effect unresolved. Neither "latest accepted" nor
+  acceptance alone proves exclusive governing force. Two accepted revisions are
+  not necessarily conflicting, nor is their concurrent force established by their
+  lifecycle labels.
 - Withdrawal records authority and reason and triggers dependent review; it is
   neither proof of fulfillment nor retroactive erasure of a past obligation.
 - Satisfaction claims identify exact Requirement and evaluated system revisions,
@@ -134,6 +154,8 @@ The [CR1 walkthrough](../scenarios/changed-requirement-after-implementation.md)
 supports separate satisfaction records for changed criteria and system revisions,
 without establishing independent assessment entity identity. It also exposes the
 unsettled distinction between successor acceptance and completed scope transfer.
+CR1-RS tests refusal and distinguishes authorization, scope/condition match, and
+present governing force without deciding whether they need independent lifecycles.
 
 See [R1-R4](../open-questions.md#requirement): assessment identity, contextual
 applicability, obligation sources and waivers, and refinement/partial supersession.

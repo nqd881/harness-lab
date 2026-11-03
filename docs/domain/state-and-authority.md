@@ -62,6 +62,26 @@ and any intermediate overlap remain S3/W1 questions, not an atomicity specificat
 Likewise preservation of an accepted baseline pending review is not authorization
 for continued use or release; those permissions remain S2/W1 questions.
 
+## Acceptance and governing force
+
+The [CR1-RS walkthrough](scenarios/refused-requirement-supersession.md) tests an
+accepted R2 followed by an unauthorized, refused request to supersede R1. R1
+remains governing in the example; R2 remains accepted. The refusal does not decide
+R2's present force, reject it, or undo its acceptance.
+
+The model needs to distinguish exact-content authorization, scope/condition match,
+and present governing force when explaining this case. It does not yet require
+independent lifecycles for those questions. One possible policy leaves R2 accepted
+but non-governing pending authorized activation; another makes R2 immediately bind
+alongside R1. Both branches preserve R1 until an authorized ending. Neither is an
+approved policy, and the lifecycle vocabulary alone cannot choose between them.
+
+Explain the governing set with its scope, policy/authorization basis, and any
+unknown effect. Unknown is not the same as non-governing. Do not infer exclusive
+force from the latest acceptance, treat an accepted successor as proof of transfer,
+or import baseline uniqueness rules into Requirement coexistence. This is a
+domain distinction, not a new applicability entity or activation command.
+
 ## Human authority
 
 The initial safety hypothesis reserves binding commitments and reversals for an
@@ -85,6 +105,12 @@ an uncertain finding into human approval. Whether human endorsement is required
 for a consistency or satisfaction judgment depends on consequences and risk;
 release/compliance authorization is distinct from reporting a test result.
 Exact delegation, quorum, external mandates, and escalation rules remain open.
+
+Authority to accept a successor does not implicitly authorize a separate request
+to end its predecessor. An explicit disposition authorization must cover that
+transition and scope. Choosing the policy for acceptance's effect also needs an
+appropriate stakeholder mandate; do not assume a scoped acceptance mandate grants
+general policy-setting authority. CR1-RS leaves that mandate unresolved.
 
 ## Transition guards and events
 
